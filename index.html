@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIB JavaScript</title>
+</head>
+<body>
+
+<table border="1" align="center" cellpadding="8px">
+  <thead>
+    <tr>
+        <th>Nama Karyawan</th>
+        <th>Jabatan</th>
+        <th>Status</th>
+        <th>Gaji</th>
+        <th>Tunjangan Jabatan</th>
+        <th>Tunjangan BPJS</th>
+        <th>Tunjangan Keluarga</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="namaKaryawan"></td>
+
+      <td id="jabatan"></td>
+
+      <td id="status"></td>
+
+      <td id="gaji"></td>
+
+      <td id="tunjanganJabatan"></td>
+
+      <td id="tunjanganBPJS"></td>
+
+      <td id="tunjanganKeluarga"></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="6">Total Gaji</th>
+      <th id="totalGaji"></th>
+    </tr>
+  </tfoot>
+</table>
+
+<script>
+    //variable
+    let karyawan = "Ridwan";
+    let jabatan = "Manager"
+    let status = "Menikah";
+    let gaji = 0;
+    switch(jabatan){
+        case "Manager" : gaji = 15000000; break;
+        case "AM" : gaji = 10000000; break;
+        case "Staff" : gaji = 5000000; break;
+        default: gaji = 0;
+    }
+    let tj = gaji * 0.15;
+    let bpjs = gaji * 0.1;
+    //teRnarys
+    let tk =(jabatan == 'Manager') ? 0.2 * gaji : 0;
+    
+    // Mengisi data ke dalam elemen tabel
+    document.getElementById("namaKaryawan").innerHTML = karyawan;
+    document.getElementById("jabatan").innerHTML = jabatan;
+    document.getElementById("status").innerHTML = status;
+    document.getElementById("gaji").innerHTML = gaji;
+    document.getElementById("tunjanganJabatan").innerHTML = tj;
+    document.getElementById("tunjanganBPJS").innerHTML = bpjs;
+    document.getElementById("tunjanganKeluarga").innerHTML = tk;
+
+    // Menghitung total gaji
+    let totalGaji = gaji + tj + bpjs + tk;
+    document.getElementById("totalGaji").innerHTML = totalGaji;
+</script>
+
+</body>
+</html>
